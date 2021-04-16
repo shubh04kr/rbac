@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+    <div class="container">
+        <h1>All Users</h1>
+
+        <br>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Details</th>
+
+            </tr>
+            <% for(let user of users) {%>
+                <tr>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.username %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <% if(user.isAdmin === true){ %> 
+                       <td>Admin</td>
+                        <%}else{%>
+                            <td></td>
+                            <%}%>
+                    <td>
+                       <a class="btn btn-success btn-sm" href="/users/<%= user._id %> "> Details </a>
+                    </td>
+                    
+                </tr>
+                <% } %>
+
+        </table>
+    </div>

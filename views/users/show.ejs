@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate.ejs') %>
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= user.name  %> </h5>
+          <h6 class="card-subtitle mb-2 text-muted">Username <%= user.username  %> </h6>
+          <h6 class="card-subtitle mb-2 text-muted">Email <%= user.email  %> </h6>
+          <div>
+            <b> Manager of</b>
+            <ul>
+            <% for(let i=0;i<user.pm_of.length;i++){ %> 
+               <li> <%=user.pm_of[i].title%></li>
+            <%}%>
+           </ul>
+         </div>  
+
+
+        <div>
+        <b> Developer In</b>
+        <ul>
+             <% for(let i=0;i<user.developer_in.length;i++){ %> 
+              <li><%= user.developer_in[i].title%></li>
+             <%}%>
+        </ul>
+        </div>
+          
+        
+          <a href="#" class="card-link">Add as Guest</a>
+          <a href="#" class="card-link">Add as Developer</a>
+          <!-- <form action="/users/<= user._id %>?_method=DELETE" method="POST"><button class="btn btn-sm btn-danger">Delete User</button></form> -->
+
+        </div>
+      </div>
+
+</div>

@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+    <div class="container">
+        <h1>All Projects</h1>
+
+        <br>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th>Title</th>
+                <th>Project Manager</th>
+                <th>Project Details</th>
+
+            </tr>
+            <% for(let project of projects) {%>
+                <tr>
+                    
+                    <td>
+                        <%= project.title %>
+                    </td>
+                    <td>
+                        <%= project.pm.username%>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="/projects/<%=project._id%>">Details</a>
+
+                    </td>
+                <% } %>
+        </table>
+    <a href="/projects/new">Make a New Project</a>
+    </div>
+
+    
